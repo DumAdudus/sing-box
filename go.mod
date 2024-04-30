@@ -1,37 +1,37 @@
 module github.com/sagernet/sing-box
 
-go 1.26.11
+go 1.27
 
 require (
-	filippo.io/age v1.3.1
+	filippo.io/age v1.3.2
 	github.com/anthropics/anthropic-sdk-go v1.26.0
-	github.com/caddyserver/certmagic v0.25.3-0.20260421143802-60d9d8b415d6
-	github.com/caddyserver/zerossl v0.1.5
+	github.com/caddyserver/certmagic v0.25.6
+	github.com/caddyserver/zerossl v0.1.6
 	github.com/coder/websocket v1.8.15
 	github.com/creack/pty v1.1.24
 	github.com/cretz/bine v0.2.0
-	github.com/database64128/tfo-go/v2 v2.3.3
+	github.com/database64128/tfo-go/v2 v2.4.2
 	github.com/dblohm7/wingoes v0.0.0-20260526185140-fb298caac7ca
-	github.com/go-chi/chi/v5 v5.2.5
+	github.com/go-chi/chi/v5 v5.5.0
 	github.com/go-chi/render v1.0.3
-	github.com/godbus/dbus/v5 v5.2.2
+	github.com/godbus/dbus/v5 v5.2.4
 	github.com/gofrs/uuid/v5 v5.5.1
-	github.com/insomniacslk/dhcp v0.0.0-20260901064844-234b97448fae
+	github.com/insomniacslk/dhcp v0.0.0-20261014062924-c6bb46ad3f3a
 	github.com/jsimonetti/rtnetlink v1.4.2
 	github.com/keybase/go-keychain v0.0.1
 	github.com/libdns/acmedns v0.5.0
-	github.com/libdns/alidns v1.0.6
+	github.com/libdns/alidns v1.0.7
 	github.com/libdns/cloudflare v0.2.2
 	github.com/libdns/libdns v1.1.1
 	github.com/logrusorgru/aurora v2.0.3+incompatible
-	github.com/mattn/go-runewidth v0.0.27
+	github.com/mattn/go-runewidth v0.0.31
 	github.com/mdlayher/netlink v1.11.2
 	github.com/metacubex/utls v1.9.0-alpha.1
-	github.com/mholt/acmez/v3 v3.1.6
-	github.com/miekg/dns v1.1.72
+	github.com/mholt/acmez/v3 v3.1.7
+	github.com/miekg/dns v1.1.73
 	github.com/openai/openai-go/v3 v3.26.0
 	github.com/oschwald/maxminddb-golang v1.13.1
-	github.com/pkg/sftp v1.13.10
+	github.com/pkg/sftp v1.13.13
 	github.com/sagernet/asc-go v0.0.0-20260914163356-9e3d45a797c1
 	github.com/sagernet/bbolt v0.0.0-20261124060517-2ab7bd6d2bff
 	github.com/sagernet/cors v1.2.1
@@ -39,7 +39,7 @@ require (
 	github.com/sagernet/cronet-go/all v0.0.0-20261126083600-ccefd17767e7
 	github.com/sagernet/fswatch v0.1.2
 	github.com/sagernet/gliderssh v0.3.4-0.20261023092853-e0cad6d28647
-	github.com/sagernet/gomobile v0.1.12
+	github.com/sagernet/gomobile v0.1.13
 	github.com/sagernet/netlink v0.0.0-20261125120807-b006b90aa077
 	github.com/sagernet/nftables v0.3.0-mod.4.0.20261114074246-0b310c3e010b
 	github.com/sagernet/quic-go v0.66.0-sing-box-mod.1
@@ -65,7 +65,7 @@ require (
 	github.com/stretchr/testify v1.12.1
 	github.com/tailscale/go-winio v0.0.0-20231025203758-c4f33415bf55
 	github.com/vishvananda/netns v0.0.5
-	go.uber.org/zap v1.27.1
+	go.uber.org/zap v1.28.0
 	go4.org/mem v0.0.0-20240501181205-ae6ca9944745
 	go4.org/netipx v0.0.0-20260823151212-3075585bcbeb
 	golang.org/x/crypto v0.59.0
@@ -81,6 +81,8 @@ require (
 	google.golang.org/protobuf v1.36.12
 	howett.net/plist v1.0.1
 )
+
+replace github.com/sagernet/sing-quic => github.com/DumAdudus/sing-quic v0.4.1-0.20261127012151-72ae20a695b3
 
 require (
 	filippo.io/edwards25519 v1.2.0 // indirect
@@ -127,7 +129,7 @@ require (
 	github.com/jackpal/go-nat-pmp v1.0.2 // indirect
 	github.com/kamstrup/intmap v0.5.2 // indirect
 	github.com/klauspost/compress v1.20.2 // indirect
-	github.com/klauspost/cpuid/v2 v2.3.0 // indirect
+	github.com/klauspost/cpuid/v2 v2.4.0 // indirect
 	github.com/koron/go-ssdp v0.0.4 // indirect
 	github.com/kr/fs v0.1.0 // indirect
 	github.com/libp2p/go-nat v1.0.1-0.20250821073202-01afc089f138 // indirect
@@ -191,9 +193,8 @@ require (
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap/exp v0.3.0 // indirect
 	go.yaml.in/yaml/v3 v3.0.6 // indirect
-	golang.org/x/oauth2 v0.38.0 // indirect
+	golang.org/x/oauth2 v0.37.0 // indirect
 	golang.org/x/time v0.16.0 // indirect
-	golang.org/x/tools v0.53.0 // indirect
 	golang.zx2c4.com/wintun v0.0.0-20230126152724-0fa3db229ce2 // indirect
 	golang.zx2c4.com/wireguard/windows v1.0.1 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260817212433-ac3dfec99bb1 // indirect
