@@ -1,6 +1,6 @@
 module github.com/sagernet/sing-box
 
-go 1.24.7
+go 1.26
 
 require (
 	github.com/anthropics/anthropic-sdk-go v1.26.0
@@ -53,15 +53,18 @@ require (
 	go.uber.org/zap v1.27.1
 	go4.org/netipx v0.0.0-20231129151722-fdeea329fbba
 	golang.org/x/crypto v0.48.0
-	golang.org/x/exp v0.0.0-20251219203646-944ab1f22d93
+	golang.org/x/exp v0.0.0-20260218203240-3dfff04db8fa
 	golang.org/x/mod v0.33.0
-	golang.org/x/net v0.50.0
+	golang.org/x/net v0.51.0
 	golang.org/x/sys v0.41.0
 	golang.zx2c4.com/wireguard/wgctrl v0.0.0-20241231184526-a9ab2273dd10
 	google.golang.org/grpc v1.79.1
 	google.golang.org/protobuf v1.36.11
 	howett.net/plist v1.0.1
 )
+
+//replace github.com/sagernet/sing => ../sing
+replace github.com/sagernet/sing-quic => github.com/DumAdudus/sing-quic v0.4.1-0.20260224025957-ac6b59ba7cbd
 
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
