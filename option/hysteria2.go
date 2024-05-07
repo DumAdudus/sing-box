@@ -129,6 +129,7 @@ type Hysteria2OutboundOptions struct {
 	DialerOptions
 	ServerOptions
 	ServerPorts    badoption.Listable[string] `json:"server_ports,omitempty"`
+	IPv6Range      badoption.Listable[string] `json:"ipv6_range"`
 	HopInterval    badoption.Duration         `json:"hop_interval,omitempty"`
 	HopIntervalMax badoption.Duration         `json:"hop_interval_max,omitempty"`
 	UpMbps         int                        `json:"up_mbps,omitempty"`
