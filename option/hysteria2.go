@@ -210,14 +210,15 @@ type Hysteria2MasqueradeString struct {
 type Hysteria2OutboundOptions struct {
 	DialerOptions
 	ServerOptions
-	ServerPorts    LegacyListable[string] `json:"server_ports,omitempty"`
-	HopInterval    badoption.Duration     `json:"hop_interval,omitempty"`
-	HopIntervalMax badoption.Duration     `json:"hop_interval_max,omitempty"`
-	UpMbps         int                    `json:"up_mbps,omitempty"`
-	DownMbps       int                    `json:"down_mbps,omitempty"`
-	Obfs           *Hysteria2Obfs         `json:"obfs,omitempty"`
-	Password       string                 `json:"password,omitempty"`
-	Network        NetworkList            `json:"network,omitempty"`
+	ServerPorts    LegacyListable[string]     `json:"server_ports,omitempty"`
+	IPv6Range      badoption.Listable[string] `json:"ipv6_range"`
+	HopInterval    badoption.Duration         `json:"hop_interval,omitempty"`
+	HopIntervalMax badoption.Duration         `json:"hop_interval_max,omitempty"`
+	UpMbps         int                        `json:"up_mbps,omitempty"`
+	DownMbps       int                        `json:"down_mbps,omitempty"`
+	Obfs           *Hysteria2Obfs             `json:"obfs,omitempty"`
+	Password       string                     `json:"password,omitempty"`
+	Network        NetworkList                `json:"network,omitempty"`
 	OutboundTLSOptionsContainer
 	QUICOptions
 	BBRProfile          string          `json:"bbr_profile,omitempty" enum:"standard,conservative,aggressive"`
