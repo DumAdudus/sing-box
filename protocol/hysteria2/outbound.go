@@ -30,7 +30,7 @@ import (
 )
 
 func RegisterOutbound(registry *outbound.Registry) {
-	outbound.Register[option.Hysteria2OutboundOptions](registry, C.TypeHysteria2, NewOutbound)
+	outbound.Register(registry, C.TypeHysteria2, NewOutbound)
 }
 
 var (
@@ -126,6 +126,7 @@ func NewOutbound(ctx context.Context, router adapter.Router, logger log.ContextL
 		}
 	}
 	networkList := options.Network.Build()
+
 	client, err := hysteria2.NewClient(hysteria2.ClientOptions{
 		Context:            ctx,
 		Dialer:             outboundDialer,
@@ -133,6 +134,7 @@ func NewOutbound(ctx context.Context, router adapter.Router, logger log.ContextL
 		BrutalDebug:        options.BrutalDebug,
 		ServerAddress:      options.ServerOptions.Build(),
 		ServerPorts:        options.ServerPorts,
+		IPv6Range:          options.IPv6Range,
 		HopInterval:        time.Duration(options.HopInterval),
 		HopIntervalMax:     time.Duration(options.HopIntervalMax),
 		SendBPS:            uint64(options.UpMbps * hysteria.MbpsToBps),
