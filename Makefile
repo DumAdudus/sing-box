@@ -7,7 +7,7 @@ GOHOSTARCH = $(shell go env GOHOSTARCH)
 VERSION=$(shell CGO_ENABLED=0 GOOS=$(GOHOSTOS) GOARCH=$(GOHOSTARCH) go run github.com/sagernet/sing-box/cmd/internal/read_tag@latest)
 
 LDFLAGS_SHARED = $(shell cat release/LDFLAGS)
-PARAMS = -v -trimpath -ldflags "-X 'github.com/sagernet/sing-box/constant.Version=$(VERSION)' $(LDFLAGS_SHARED) -s -w -buildid="
+PARAMS = -v -trimpath -ldflags "-X 'github.com/sagernet/sing-box/constant.Version=$(VERSION)' $(LDFLAGS_SHARED) -s -w -buildid= -checklinkname=0"
 MAIN_PARAMS = $(PARAMS) -tags "$(TAGS)"
 MAIN = ./cmd/sing-box
 PREFIX ?= $(shell go env GOPATH)
@@ -91,7 +91,7 @@ update_desktop_version:
 	go run ./cmd/internal/update_desktop_version
 
 build_android:
-	cd ../sing-box-for-android && ./gradlew :app:clean :app:assembleOtherRelease :app:assembleOtherLegacyRelease && ./gradlew --stop
+	cd ../sing-box-for-android && ./gradlew :app:clean :app:assembleOtherRelease && ./gradlew --stop
 
 upload_android:
 	mkdir -p dist/release_android
@@ -255,7 +255,7 @@ test_stdio:
 	go test -v -tags "$(TAGS_TEST),force_stdio" .
 
 lib_android:
-	go run ./cmd/internal/build_libbox -target android
+	go run ./cmd/internal/build_libbox -target android -platform android/arm64
 
 lib_apple:
 	go run ./cmd/internal/build_libbox -target apple
@@ -284,13 +284,17 @@ docs_install:
 	source ./venv/bin/activate && pip install --force-reinstall mkdocs-material=="9.7.2" mkdocs-static-i18n=="1.2.*"
 
 clean:
-	rm -rf bin dist sing-box
+	rm -rf bin dist sing-box libbox.aar
 	rm -f $(shell go env GOPATH)/sing-box
 
 update:
 	git fetch
 	git reset FETCH_HEAD --hard
 	git clean -fdx
+
+sfar: clean lib_android build_android
+proto_install: GOAMD64 = v4
+lib_install: GOAMD64 = v4
 
 %:
 	@:
