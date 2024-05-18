@@ -91,7 +91,7 @@ update_desktop_version:
 	go run ./cmd/internal/update_desktop_version
 
 build_android:
-	cd ../sing-box-for-android && ./gradlew :app:clean :app:assembleOtherRelease :app:assembleOtherLegacyRelease && ./gradlew --stop
+	cd ../sing-box-for-android && ./gradlew :app:clean :app:assembleOtherRelease && ./gradlew --stop
 
 upload_android:
 	mkdir -p dist/release_android
@@ -254,7 +254,7 @@ test_stdio:
 	go test -v -tags "$(TAGS_TEST),force_stdio" .
 
 lib_android:
-	go run ./cmd/internal/build_libbox -target android
+	go run ./cmd/internal/build_libbox -target android -platform android/arm64
 
 lib_apple:
 	go run ./cmd/internal/build_libbox -target apple
@@ -283,13 +283,15 @@ docs_install:
 	source ./venv/bin/activate && pip install --force-reinstall mkdocs-material=="9.7.2" mkdocs-static-i18n=="1.2.*"
 
 clean:
-	rm -rf bin dist sing-box
+	rm -rf bin dist sing-box libbox.aar
 	rm -f $(shell go env GOPATH)/sing-box
 
 update:
 	git fetch
 	git reset FETCH_HEAD --hard
 	git clean -fdx
+
+sfar: clean lib_install lib_android build_android
 
 %:
 	@:
