@@ -22,7 +22,7 @@ import (
 	"github.com/sagernet/sing-box/transport/device"
 	ovpntransport "github.com/sagernet/sing-box/transport/openvpn"
 	ovpn "github.com/sagernet/sing-openvpn"
-	"github.com/sagernet/sing-tun"
+	tun "github.com/sagernet/sing-tun"
 	"github.com/sagernet/sing/common/buf"
 	E "github.com/sagernet/sing/common/exceptions"
 	M "github.com/sagernet/sing/common/metadata"
@@ -76,13 +76,11 @@ func NewServerEndpoint(ctx context.Context, router adapter.Router, logger log.Co
 	}
 	loopContext, cancelLoop := context.WithCancel(ctx)
 	serverEndpoint := &ServerEndpoint{
-		endpointBase: endpointBase{
-			Adapter: endpoint.NewAdapter(C.TypeOpenVPNServer, tag, []string{N.NetworkTCP, N.NetworkUDP, N.NetworkICMP}, nil),
-			router:  router,
-			logger:  logger,
-			system:  options.System,
-			network: service.FromContext[adapter.NetworkManager](ctx),
-		},
+		Adapter:        endpoint.NewAdapter(C.TypeOpenVPNServer, tag, []string{N.NetworkTCP, N.NetworkUDP, N.NetworkICMP}, nil),
+		router:         router,
+		logger:         logger,
+		system:         options.System,
+		network:        service.FromContext[adapter.NetworkManager](ctx),
 		ctx:            ctx,
 		cancelLoop:     cancelLoop,
 		options:        options,
@@ -202,11 +200,9 @@ func (s *ServerEndpoint) Start(stage adapter.StartStage, scope *adapter.Scope) e
 		listenAddress := s.options.Listen.Build(netip.AddrFrom4([4]byte{127, 0, 0, 1}))
 		if listenAddress.IsUnspecified() && s.options.BindInterface == "" && s.options.RoutingMark == 0 && s.options.NetNs == "" {
 			udpDialer, dialerErr := dialer.NewDefault(s.ctx, option.DialerOptions{
-				AbstractDialerOptions: option.AbstractDialerOptions{
-					ReuseAddr:          s.options.ReuseAddr,
-					UDPFragment:        s.options.UDPFragment,
-					UDPFragmentDefault: s.options.UDPFragmentDefault,
-				},
+				ReuseAddr:          s.options.ReuseAddr,
+				UDPFragment:        s.options.UDPFragment,
+				UDPFragmentDefault: s.options.UDPFragmentDefault,
 			})
 			if dialerErr != nil {
 				return dialerErr
