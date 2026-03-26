@@ -22,8 +22,8 @@ import (
 	"github.com/sagernet/sing-box/service/oomkiller"
 	"github.com/sagernet/sing-box/transport/device"
 	openconnecttransport "github.com/sagernet/sing-box/transport/openconnect"
-	"github.com/sagernet/sing-openconnect"
-	"github.com/sagernet/sing-tun"
+	openconnect "github.com/sagernet/sing-openconnect"
+	tun "github.com/sagernet/sing-tun"
 	"github.com/sagernet/sing/common"
 	"github.com/sagernet/sing/common/buf"
 	"github.com/sagernet/sing/common/bufio"
@@ -107,13 +107,11 @@ func NewEndpoint(ctx context.Context, router adapter.Router, logger log.ContextL
 	options.UDPBindPort = options.DTLSLocalPort
 	loopContext, cancelLoop := context.WithCancel(ctx)
 	openConnectEndpoint := &Endpoint{
-		endpointBase: endpointBase{
-			Adapter: endpoint.NewAdapterWithDialerOptions(C.TypeOpenConnect, tag, []string{N.NetworkTCP, N.NetworkUDP, N.NetworkICMP}, options.DialerOptions),
-			router:  router,
-			logger:  logger,
-			system:  options.System,
-			network: service.FromContext[adapter.NetworkManager](ctx),
-		},
+		Adapter:       endpoint.NewAdapterWithDialerOptions(C.TypeOpenConnect, tag, []string{N.NetworkTCP, N.NetworkUDP, N.NetworkICMP}, options.DialerOptions),
+		router:        router,
+		logger:        logger,
+		system:        options.System,
+		network:       service.FromContext[adapter.NetworkManager](ctx),
 		loopContext:   loopContext,
 		cancelLoop:    cancelLoop,
 		dnsRouter:     service.FromContext[adapter.DNSRouter](ctx),

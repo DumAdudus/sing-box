@@ -167,7 +167,7 @@ func RegisterManagedServiceServer(s grpc.ServiceRegistrar, srv ManagedServiceSer
 	s.RegisterService(&ManagedService_ServiceDesc, srv)
 }
 
-func _ManagedService_StopService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagedService_StopService_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -179,13 +179,13 @@ func _ManagedService_StopService_Handler(srv interface{}, ctx context.Context, d
 		Server:     srv,
 		FullMethod: ManagedService_StopService_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(ManagedServiceServer).StopService(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagedService_ReloadService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagedService_ReloadService_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -197,13 +197,13 @@ func _ManagedService_ReloadService_Handler(srv interface{}, ctx context.Context,
 		Server:     srv,
 		FullMethod: ManagedService_ReloadService_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(ManagedServiceServer).ReloadService(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagedService_GetSystemProxyStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagedService_GetSystemProxyStatus_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -215,13 +215,13 @@ func _ManagedService_GetSystemProxyStatus_Handler(srv interface{}, ctx context.C
 		Server:     srv,
 		FullMethod: ManagedService_GetSystemProxyStatus_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(ManagedServiceServer).GetSystemProxyStatus(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagedService_SetSystemProxyEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagedService_SetSystemProxyEnabled_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(SetSystemProxyEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -233,13 +233,13 @@ func _ManagedService_SetSystemProxyEnabled_Handler(srv interface{}, ctx context.
 		Server:     srv,
 		FullMethod: ManagedService_SetSystemProxyEnabled_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(ManagedServiceServer).SetSystemProxyEnabled(ctx, req.(*SetSystemProxyEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagedService_TriggerDebugCrash_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagedService_TriggerDebugCrash_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(DebugCrashRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -251,13 +251,13 @@ func _ManagedService_TriggerDebugCrash_Handler(srv interface{}, ctx context.Cont
 		Server:     srv,
 		FullMethod: ManagedService_TriggerDebugCrash_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(ManagedServiceServer).TriggerDebugCrash(ctx, req.(*DebugCrashRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ManagedService_TriggerOOMReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ManagedService_TriggerOOMReport_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -269,7 +269,7 @@ func _ManagedService_TriggerOOMReport_Handler(srv interface{}, ctx context.Conte
 		Server:     srv,
 		FullMethod: ManagedService_TriggerOOMReport_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(ManagedServiceServer).TriggerOOMReport(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)

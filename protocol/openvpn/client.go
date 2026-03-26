@@ -21,7 +21,7 @@ import (
 	"github.com/sagernet/sing-box/transport/device"
 	ovpntransport "github.com/sagernet/sing-box/transport/openvpn"
 	ovpn "github.com/sagernet/sing-openvpn"
-	"github.com/sagernet/sing-tun"
+	tun "github.com/sagernet/sing-tun"
 	"github.com/sagernet/sing-tun/gtcpip/header"
 	"github.com/sagernet/sing/common"
 	"github.com/sagernet/sing/common/buf"
@@ -78,13 +78,11 @@ type clientState struct {
 func NewClientEndpoint(ctx context.Context, router adapter.Router, logger log.ContextLogger, tag string, options option.OpenVPNClientEndpointOptions) (adapter.Endpoint, error) {
 	loopContext, cancelLoop := context.WithCancel(ctx)
 	clientEndpoint := &ClientEndpoint{
-		endpointBase: endpointBase{
-			Adapter: endpoint.NewAdapterWithDialerOptions(C.TypeOpenVPNClient, tag, []string{N.NetworkTCP, N.NetworkUDP, N.NetworkICMP}, options.DialerOptions),
-			router:  router,
-			logger:  logger,
-			system:  options.System,
-			network: service.FromContext[adapter.NetworkManager](ctx),
-		},
+		Adapter:       endpoint.NewAdapterWithDialerOptions(C.TypeOpenVPNClient, tag, []string{N.NetworkTCP, N.NetworkUDP, N.NetworkICMP}, options.DialerOptions),
+		router:        router,
+		logger:        logger,
+		system:        options.System,
+		network:       service.FromContext[adapter.NetworkManager](ctx),
 		ctx:           ctx,
 		loopContext:   loopContext,
 		cancelLoop:    cancelLoop,

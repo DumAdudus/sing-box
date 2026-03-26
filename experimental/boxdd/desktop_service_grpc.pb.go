@@ -543,7 +543,7 @@ func RegisterDesktopServiceServer(s grpc.ServiceRegistrar, srv DesktopServiceSer
 	s.RegisterService(&DesktopService_ServiceDesc, srv)
 }
 
-func _DesktopService_GetDaemonInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_GetDaemonInfo_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -555,13 +555,13 @@ func _DesktopService_GetDaemonInfo_Handler(srv interface{}, ctx context.Context,
 		Server:     srv,
 		FullMethod: DesktopService_GetDaemonInfo_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).GetDaemonInfo(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_ClaimService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_ClaimService_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -573,13 +573,13 @@ func _DesktopService_ClaimService_Handler(srv interface{}, ctx context.Context, 
 		Server:     srv,
 		FullMethod: DesktopService_ClaimService_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).ClaimService(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_TakeOverService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_TakeOverService_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -591,13 +591,13 @@ func _DesktopService_TakeOverService_Handler(srv interface{}, ctx context.Contex
 		Server:     srv,
 		FullMethod: DesktopService_TakeOverService_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).TakeOverService(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_StartService_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_StartService_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(StartServiceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -609,13 +609,13 @@ func _DesktopService_StartService_Handler(srv interface{}, ctx context.Context, 
 		Server:     srv,
 		FullMethod: DesktopService_StartService_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).StartService(ctx, req.(*StartServiceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_GetWorkingDirectory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_GetWorkingDirectory_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -627,13 +627,13 @@ func _DesktopService_GetWorkingDirectory_Handler(srv interface{}, ctx context.Co
 		Server:     srv,
 		FullMethod: DesktopService_GetWorkingDirectory_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).GetWorkingDirectory(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_DestroyWorkingDirectory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_DestroyWorkingDirectory_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -645,13 +645,13 @@ func _DesktopService_DestroyWorkingDirectory_Handler(srv interface{}, ctx contex
 		Server:     srv,
 		FullMethod: DesktopService_DestroyWorkingDirectory_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).DestroyWorkingDirectory(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_ListCrashReports_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_ListCrashReports_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -663,13 +663,13 @@ func _DesktopService_ListCrashReports_Handler(srv interface{}, ctx context.Conte
 		Server:     srv,
 		FullMethod: DesktopService_ListCrashReports_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).ListCrashReports(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_ReadCrashReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_ReadCrashReport_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(CrashReportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -681,13 +681,13 @@ func _DesktopService_ReadCrashReport_Handler(srv interface{}, ctx context.Contex
 		Server:     srv,
 		FullMethod: DesktopService_ReadCrashReport_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).ReadCrashReport(ctx, req.(*CrashReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_MarkCrashReportRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_MarkCrashReportRead_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(CrashReportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -699,13 +699,13 @@ func _DesktopService_MarkCrashReportRead_Handler(srv interface{}, ctx context.Co
 		Server:     srv,
 		FullMethod: DesktopService_MarkCrashReportRead_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).MarkCrashReportRead(ctx, req.(*CrashReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_ExportCrashReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_ExportCrashReport_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(CrashReportExportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -717,13 +717,13 @@ func _DesktopService_ExportCrashReport_Handler(srv interface{}, ctx context.Cont
 		Server:     srv,
 		FullMethod: DesktopService_ExportCrashReport_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).ExportCrashReport(ctx, req.(*CrashReportExportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_DeleteCrashReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_DeleteCrashReport_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(CrashReportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -735,13 +735,13 @@ func _DesktopService_DeleteCrashReport_Handler(srv interface{}, ctx context.Cont
 		Server:     srv,
 		FullMethod: DesktopService_DeleteCrashReport_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).DeleteCrashReport(ctx, req.(*CrashReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_DeleteAllCrashReports_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_DeleteAllCrashReports_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -753,13 +753,13 @@ func _DesktopService_DeleteAllCrashReports_Handler(srv interface{}, ctx context.
 		Server:     srv,
 		FullMethod: DesktopService_DeleteAllCrashReports_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).DeleteAllCrashReports(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_ListOOMReports_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_ListOOMReports_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -771,13 +771,13 @@ func _DesktopService_ListOOMReports_Handler(srv interface{}, ctx context.Context
 		Server:     srv,
 		FullMethod: DesktopService_ListOOMReports_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).ListOOMReports(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_ReadOOMReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_ReadOOMReport_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(OOMReportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -789,13 +789,13 @@ func _DesktopService_ReadOOMReport_Handler(srv interface{}, ctx context.Context,
 		Server:     srv,
 		FullMethod: DesktopService_ReadOOMReport_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).ReadOOMReport(ctx, req.(*OOMReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_MarkOOMReportRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_MarkOOMReportRead_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(OOMReportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -807,13 +807,13 @@ func _DesktopService_MarkOOMReportRead_Handler(srv interface{}, ctx context.Cont
 		Server:     srv,
 		FullMethod: DesktopService_MarkOOMReportRead_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).MarkOOMReportRead(ctx, req.(*OOMReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_ExportOOMReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_ExportOOMReport_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(OOMReportExportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -825,13 +825,13 @@ func _DesktopService_ExportOOMReport_Handler(srv interface{}, ctx context.Contex
 		Server:     srv,
 		FullMethod: DesktopService_ExportOOMReport_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).ExportOOMReport(ctx, req.(*OOMReportExportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_DeleteOOMReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_DeleteOOMReport_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(OOMReportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -843,13 +843,13 @@ func _DesktopService_DeleteOOMReport_Handler(srv interface{}, ctx context.Contex
 		Server:     srv,
 		FullMethod: DesktopService_DeleteOOMReport_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).DeleteOOMReport(ctx, req.(*OOMReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_DeleteAllOOMReports_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_DeleteAllOOMReports_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -861,13 +861,13 @@ func _DesktopService_DeleteAllOOMReports_Handler(srv interface{}, ctx context.Co
 		Server:     srv,
 		FullMethod: DesktopService_DeleteAllOOMReports_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).DeleteAllOOMReports(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_ListPowerReports_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_ListPowerReports_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -879,13 +879,13 @@ func _DesktopService_ListPowerReports_Handler(srv interface{}, ctx context.Conte
 		Server:     srv,
 		FullMethod: DesktopService_ListPowerReports_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).ListPowerReports(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_ReadPowerReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_ReadPowerReport_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(OOMReportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -897,13 +897,13 @@ func _DesktopService_ReadPowerReport_Handler(srv interface{}, ctx context.Contex
 		Server:     srv,
 		FullMethod: DesktopService_ReadPowerReport_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).ReadPowerReport(ctx, req.(*OOMReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_MarkPowerReportRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_MarkPowerReportRead_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(OOMReportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -915,13 +915,13 @@ func _DesktopService_MarkPowerReportRead_Handler(srv interface{}, ctx context.Co
 		Server:     srv,
 		FullMethod: DesktopService_MarkPowerReportRead_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).MarkPowerReportRead(ctx, req.(*OOMReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_ExportPowerReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_ExportPowerReport_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(OOMReportExportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -933,13 +933,13 @@ func _DesktopService_ExportPowerReport_Handler(srv interface{}, ctx context.Cont
 		Server:     srv,
 		FullMethod: DesktopService_ExportPowerReport_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).ExportPowerReport(ctx, req.(*OOMReportExportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_DeletePowerReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_DeletePowerReport_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(OOMReportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -951,13 +951,13 @@ func _DesktopService_DeletePowerReport_Handler(srv interface{}, ctx context.Cont
 		Server:     srv,
 		FullMethod: DesktopService_DeletePowerReport_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).DeletePowerReport(ctx, req.(*OOMReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_DeleteAllPowerReports_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_DeleteAllPowerReports_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -969,13 +969,13 @@ func _DesktopService_DeleteAllPowerReports_Handler(srv interface{}, ctx context.
 		Server:     srv,
 		FullMethod: DesktopService_DeleteAllPowerReports_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).DeleteAllPowerReports(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_InstallUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_InstallUpdate_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(InstallUpdateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -987,13 +987,13 @@ func _DesktopService_InstallUpdate_Handler(srv interface{}, ctx context.Context,
 		Server:     srv,
 		FullMethod: DesktopService_InstallUpdate_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).InstallUpdate(ctx, req.(*InstallUpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_GetSecuritySettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_GetSecuritySettings_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1005,13 +1005,13 @@ func _DesktopService_GetSecuritySettings_Handler(srv interface{}, ctx context.Co
 		Server:     srv,
 		FullMethod: DesktopService_GetSecuritySettings_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).GetSecuritySettings(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_SetInsecureModeEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_SetInsecureModeEnabled_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(SetInsecureModeEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1023,13 +1023,13 @@ func _DesktopService_SetInsecureModeEnabled_Handler(srv interface{}, ctx context
 		Server:     srv,
 		FullMethod: DesktopService_SetInsecureModeEnabled_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).SetInsecureModeEnabled(ctx, req.(*SetInsecureModeEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DesktopService_SetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DesktopService_SetLocale_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(SetLocaleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1041,7 +1041,7 @@ func _DesktopService_SetLocale_Handler(srv interface{}, ctx context.Context, dec
 		Server:     srv,
 		FullMethod: DesktopService_SetLocale_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(DesktopServiceServer).SetLocale(ctx, req.(*SetLocaleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
@@ -1376,7 +1376,7 @@ func RegisterApplicationServiceServer(s grpc.ServiceRegistrar, srv ApplicationSe
 	s.RegisterService(&ApplicationService_ServiceDesc, srv)
 }
 
-func _ApplicationService_CheckConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ApplicationService_CheckConfig_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(ConfigContent)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1388,13 +1388,13 @@ func _ApplicationService_CheckConfig_Handler(srv interface{}, ctx context.Contex
 		Server:     srv,
 		FullMethod: ApplicationService_CheckConfig_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(ApplicationServiceServer).CheckConfig(ctx, req.(*ConfigContent))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ApplicationService_FormatConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ApplicationService_FormatConfig_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(ConfigContent)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1406,13 +1406,13 @@ func _ApplicationService_FormatConfig_Handler(srv interface{}, ctx context.Conte
 		Server:     srv,
 		FullMethod: ApplicationService_FormatConfig_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(ApplicationServiceServer).FormatConfig(ctx, req.(*ConfigContent))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ApplicationService_GenerateConfigSchema_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ApplicationService_GenerateConfigSchema_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1424,13 +1424,13 @@ func _ApplicationService_GenerateConfigSchema_Handler(srv interface{}, ctx conte
 		Server:     srv,
 		FullMethod: ApplicationService_GenerateConfigSchema_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(ApplicationServiceServer).GenerateConfigSchema(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ApplicationService_EncodeProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ApplicationService_EncodeProfile_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(ProfileContent)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1442,13 +1442,13 @@ func _ApplicationService_EncodeProfile_Handler(srv interface{}, ctx context.Cont
 		Server:     srv,
 		FullMethod: ApplicationService_EncodeProfile_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(ApplicationServiceServer).EncodeProfile(ctx, req.(*ProfileContent))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ApplicationService_DecodeProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ApplicationService_DecodeProfile_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(ProfileData)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1460,13 +1460,13 @@ func _ApplicationService_DecodeProfile_Handler(srv interface{}, ctx context.Cont
 		Server:     srv,
 		FullMethod: ApplicationService_DecodeProfile_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(ApplicationServiceServer).DecodeProfile(ctx, req.(*ProfileData))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ApplicationService_ArchiveReport_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ApplicationService_ArchiveReport_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(ArchiveReportRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1478,13 +1478,13 @@ func _ApplicationService_ArchiveReport_Handler(srv interface{}, ctx context.Cont
 		Server:     srv,
 		FullMethod: ApplicationService_ArchiveReport_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(ApplicationServiceServer).ArchiveReport(ctx, req.(*ArchiveReportRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ApplicationService_StartStandaloneNetworkQualityTest_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _ApplicationService_StartStandaloneNetworkQualityTest_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(StandaloneNetworkQualityTestRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1495,7 +1495,7 @@ func _ApplicationService_StartStandaloneNetworkQualityTest_Handler(srv interface
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type ApplicationService_StartStandaloneNetworkQualityTestServer = grpc.ServerStreamingServer[daemon.NetworkQualityTestProgress]
 
-func _ApplicationService_StartStandaloneSTUNTest_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _ApplicationService_StartStandaloneSTUNTest_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(StandaloneSTUNTestRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err

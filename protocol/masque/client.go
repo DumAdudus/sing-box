@@ -22,7 +22,7 @@ import (
 	"github.com/sagernet/sing-box/transport/device"
 	"github.com/sagernet/sing-box/transport/http"
 	"github.com/sagernet/sing-box/transport/masque"
-	"github.com/sagernet/sing-tun"
+	tun "github.com/sagernet/sing-tun"
 	"github.com/sagernet/sing-tun/gtcpip/header"
 	"github.com/sagernet/sing/common"
 	"github.com/sagernet/sing/common/buf"
@@ -121,13 +121,11 @@ func NewClientEndpoint(ctx context.Context, router adapter.Router, logger log.Co
 		return nil, err
 	}
 	clientEndpoint := &ClientEndpoint{
-		endpointBase: endpointBase{
-			Adapter: endpoint.NewAdapterWithDialerOptions(C.TypeMASQUEClient, tag, []string{N.NetworkTCP, N.NetworkUDP, N.NetworkICMP}, options.DialerOptions),
-			router:  router,
-			logger:  logger,
-			system:  options.System,
-			network: service.FromContext[adapter.NetworkManager](ctx),
-		},
+		Adapter:   endpoint.NewAdapterWithDialerOptions(C.TypeMASQUEClient, tag, []string{N.NetworkTCP, N.NetworkUDP, N.NetworkICMP}, options.DialerOptions),
+		router:    router,
+		logger:    logger,
+		system:    options.System,
+		network:   service.FromContext[adapter.NetworkManager](ctx),
 		ctx:       ctx,
 		dnsRouter: service.FromContext[adapter.DNSRouter](ctx),
 		mtu:       options.MTU,
