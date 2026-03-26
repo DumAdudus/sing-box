@@ -22,7 +22,7 @@ import (
 	"github.com/sagernet/sing-box/transport/device"
 	"github.com/sagernet/sing-box/transport/http"
 	"github.com/sagernet/sing-box/transport/masque"
-	"github.com/sagernet/sing-tun"
+	tun "github.com/sagernet/sing-tun"
 	"github.com/sagernet/sing/common"
 	"github.com/sagernet/sing/common/auth"
 	"github.com/sagernet/sing/common/buf"
@@ -76,13 +76,11 @@ func NewServerEndpoint(ctx context.Context, router adapter.Router, logger log.Co
 		options.HTTP3Options.InitialPacketSize = min(int(options.MTU)+masque.QUICPacketOverhead, math.MaxUint16)
 	}
 	serverEndpoint := &ServerEndpoint{
-		endpointBase: endpointBase{
-			Adapter: endpoint.NewAdapter(C.TypeMASQUEServer, tag, []string{N.NetworkTCP, N.NetworkUDP, N.NetworkICMP}, nil),
-			router:  router,
-			logger:  logger,
-			system:  options.System,
-			network: service.FromContext[adapter.NetworkManager](ctx),
-		},
+		Adapter:        endpoint.NewAdapter(C.TypeMASQUEServer, tag, []string{N.NetworkTCP, N.NetworkUDP, N.NetworkICMP}, nil),
+		router:         router,
+		logger:         logger,
+		system:         options.System,
+		network:        service.FromContext[adapter.NetworkManager](ctx),
 		ctx:            ctx,
 		dnsRouter:      service.FromContext[adapter.DNSRouter](ctx),
 		http3:          serveHTTP3,

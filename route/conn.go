@@ -83,9 +83,9 @@ func (m *ConnectionManager) CloseAll() {
 
 func (m *ConnectionManager) TrackConn(conn net.Conn) net.Conn {
 	tracked := &trackedConn{
-		Conn:        conn,
-		socketOwner: socketOwner{original: conn},
-		manager:     m,
+		Conn:     conn,
+		original: conn,
+		manager:  m,
 	}
 	m.access.Lock()
 	tracked.element = m.connections.PushBack(tracked)
@@ -96,7 +96,7 @@ func (m *ConnectionManager) TrackConn(conn net.Conn) net.Conn {
 func (m *ConnectionManager) TrackPacketConn(conn net.PacketConn) net.PacketConn {
 	tracked := &trackedPacketConn{
 		NetPacketConn: bufio.NewPacketConn(conn),
-		socketOwner:   socketOwner{original: conn},
+		original:      conn,
 		manager:       m,
 	}
 	m.access.Lock()
