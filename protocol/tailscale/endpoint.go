@@ -316,9 +316,7 @@ func (t *Endpoint) start(scope *adapter.Scope) error {
 			return err
 		}
 		systemDialer, err := dialer.NewDefault(t.ctx, option.DialerOptions{
-			AbstractDialerOptions: option.AbstractDialerOptions{
-				BindInterface: tunName,
-			},
+			BindInterface: tunName,
 		})
 		if err != nil {
 			return err
@@ -479,11 +477,9 @@ func (t *Endpoint) watchState(ctx context.Context) {
 
 func (t *Endpoint) editPrefs(sshEnabled bool) error {
 	perfs := &ipn.MaskedPrefs{
-		Prefs: ipn.Prefs{
-			RouteAll:        t.acceptRoutes,
-			AdvertiseRoutes: t.advertiseRoutes,
-			RunSSH:          sshEnabled,
-		},
+		RouteAll:                      t.acceptRoutes,
+		AdvertiseRoutes:               t.advertiseRoutes,
+		RunSSH:                        sshEnabled,
 		RouteAllSet:                   true,
 		ExitNodeIPSet:                 true,
 		AdvertiseRoutesSet:            true,
@@ -513,9 +509,7 @@ func (t *Endpoint) applyExitNode() error {
 		return err
 	}
 	perfs := &ipn.MaskedPrefs{
-		Prefs: ipn.Prefs{
-			ExitNodeAllowLANAccess: t.exitNodeAllowLANAccess,
-		},
+		ExitNodeAllowLANAccess:    t.exitNodeAllowLANAccess,
 		ExitNodeIPSet:             true,
 		ExitNodeAllowLANAccessSet: true,
 	}
@@ -535,10 +529,8 @@ func (t *Endpoint) SetTailscaleExitNode(ctx context.Context, stableID string) er
 		return E.New("cannot advertise an exit node and use an exit node at the same time")
 	}
 	perfs := &ipn.MaskedPrefs{
-		Prefs: ipn.Prefs{
-			ExitNodeID:             tailcfg.StableNodeID(stableID),
-			ExitNodeAllowLANAccess: t.exitNodeAllowLANAccess,
-		},
+		ExitNodeID:                tailcfg.StableNodeID(stableID),
+		ExitNodeAllowLANAccess:    t.exitNodeAllowLANAccess,
 		ExitNodeIDSet:             true,
 		ExitNodeIPSet:             true,
 		ExitNodeAllowLANAccessSet: true,
@@ -670,7 +662,7 @@ func (t *Endpoint) suspendLocked() {
 	}
 	t.suspendPending.Store(false)
 	_, err := localBackend.EditPrefs(&ipn.MaskedPrefs{
-		Prefs:          ipn.Prefs{WantRunning: false},
+		WantRunning:    false,
 		WantRunningSet: true,
 	})
 	if err != nil {
@@ -697,7 +689,7 @@ func (t *Endpoint) resume(ctx context.Context) error {
 			return E.New("Tailscale is not ready yet")
 		}
 		_, err := localBackend.EditPrefs(&ipn.MaskedPrefs{
-			Prefs:          ipn.Prefs{WantRunning: true},
+			WantRunning:    true,
 			WantRunningSet: true,
 		})
 		if err != nil {
@@ -742,7 +734,7 @@ func (t *Endpoint) awaitRunning(localBackend *ipnlocal.LocalBackend, resumeDone 
 		}
 	} else {
 		_, err := localBackend.EditPrefs(&ipn.MaskedPrefs{
-			Prefs:          ipn.Prefs{WantRunning: false},
+			WantRunning:    false,
 			WantRunningSet: true,
 		})
 		if err != nil {

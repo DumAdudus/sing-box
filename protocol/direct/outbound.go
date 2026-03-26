@@ -79,7 +79,7 @@ func NewOutbound(ctx context.Context, router adapter.Router, logger log.ContextL
 		domainStrategy: C.DomainStrategy(options.DomainStrategy),
 		dialer:         outboundDialer.(parallelResolveDialer),
 		isEmpty: reflect.DeepEqual(options.DialerOptions, option.DialerOptions{
-			AbstractDialerOptions: option.AbstractDialerOptions{UDPFragmentDefault: true},
+			UDPFragmentDefault: true,
 		}),
 	}
 	//nolint:staticcheck
