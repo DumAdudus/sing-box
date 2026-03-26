@@ -13,8 +13,8 @@ import (
 type HTTP2Options struct {
 	IdleTimeout             badoption.Duration      `json:"idle_timeout,omitempty"`
 	KeepAlivePeriod         badoption.Duration      `json:"keep_alive_period,omitempty"`
-	StreamReceiveWindow     byteformats.MemoryBytes `json:"stream_receive_window,omitempty"`
-	ConnectionReceiveWindow byteformats.MemoryBytes `json:"connection_receive_window,omitempty"`
+	StreamReceiveWindow     byteformats.MemoryBytes `json:"stream_receive_window"`
+	ConnectionReceiveWindow byteformats.MemoryBytes `json:"connection_receive_window"`
 	MaxConcurrentStreams    int                     `json:"max_concurrent_streams,omitempty"`
 }
 

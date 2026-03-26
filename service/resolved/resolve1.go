@@ -127,7 +127,7 @@ func (t *resolve1Manager) createMetadata(sender dbus.Sender) adapter.InboundCont
 	var uidFound bool
 	statusContent, err := os.ReadFile(F.ToString("/proc/", senderPid, "/status"))
 	if err == nil {
-		for _, line := range strings.Split(string(statusContent), "\n") {
+		for line := range strings.SplitSeq(string(statusContent), "\n") {
 			line = strings.TrimSpace(line)
 			if strings.HasPrefix(line, "Uid:") {
 				fields := strings.Fields(line)

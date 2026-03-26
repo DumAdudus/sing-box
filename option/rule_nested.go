@@ -3,6 +3,7 @@ package option
 import (
 	"context"
 	"reflect"
+	"slices"
 	"strings"
 
 	E "github.com/sagernet/sing/common/exceptions"
@@ -59,10 +60,8 @@ func hasAnyJSONKey(ctx context.Context, content []byte, keys ...string) (bool, e
 	if err != nil {
 		return false, err
 	}
-	for _, key := range keys {
-		if object.ContainsKey(key) {
-			return true, nil
-		}
+	if slices.ContainsFunc(keys, object.ContainsKey) {
+		return true, nil
 	}
 	return false, nil
 }
@@ -114,8 +113,7 @@ func appendJSONFieldNames(fieldMap map[string]struct{}, fieldType reflect.Type) 
 	if fieldType.Kind() != reflect.Struct {
 		return
 	}
-	for i := range fieldType.NumField() {
-		field := fieldType.Field(i)
+	for field := range fieldType.Fields() {
 		tagValue := field.Tag.Get("json")
 		tagName, _, _ := strings.Cut(tagValue, ",")
 		if tagName == "-" {

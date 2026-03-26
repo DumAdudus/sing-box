@@ -283,8 +283,8 @@ func (s *Service) getAccessToken() (string, error) {
 
 func detectContextWindow(betaHeader string, totalInputTokens int64) int {
 	if totalInputTokens > premiumContextThreshold {
-		features := strings.Split(betaHeader, ",")
-		for _, feature := range features {
+		features := strings.SplitSeq(betaHeader, ",")
+		for feature := range features {
 			if strings.HasPrefix(strings.TrimSpace(feature), "context-1m") {
 				return contextWindowPremium
 			}
@@ -507,8 +507,8 @@ func (s *Service) handleResponseWithTracking(writer http.ResponseWriter, respons
 					continue
 				}
 
-				if bytes.HasPrefix(line, []byte("data: ")) {
-					eventData := bytes.TrimPrefix(line, []byte("data: "))
+				if after, ok0 := bytes.CutPrefix(line, []byte("data: ")); ok0 {
+					eventData := after
 					if bytes.Equal(eventData, []byte("[DONE]")) {
 						continue
 					}

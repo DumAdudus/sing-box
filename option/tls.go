@@ -201,7 +201,7 @@ func (c *CurvePreference) UnmarshalJSON(data []byte) error {
 
 type InboundRealityOptions struct {
 	Enabled           bool                           `json:"enabled,omitempty"`
-	Handshake         InboundRealityHandshakeOptions `json:"handshake,omitempty"`
+	Handshake         InboundRealityHandshakeOptions `json:"handshake"`
 	PrivateKey        string                         `json:"private_key,omitempty"`
 	ShortID           badoption.Listable[string]     `json:"short_id,omitempty"`
 	MaxTimeDifference badoption.Duration             `json:"max_time_difference,omitempty"`

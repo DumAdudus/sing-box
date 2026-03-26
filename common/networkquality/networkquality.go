@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"net/http/httptrace"
 	"net/url"
+	"slices"
 	"sort"
 	"strings"
 	"sync"
@@ -406,11 +407,9 @@ func (r *directionRunner) addConnection(ctx context.Context) error {
 	r.connMu.Lock()
 	r.connections = append(r.connections, conn)
 	r.connMu.Unlock()
-	r.wg.Add(1)
-	go func() {
-		defer r.wg.Done()
+	r.wg.Go(func() {
 		conn.run(ctx, r.onConnectionFailed)
-	}()
+	})
 	return nil
 }
 
@@ -436,9 +435,7 @@ func (r *directionRunner) pickReadyConnection() *loadConnection {
 }
 
 func (r *directionRunner) startProber(ctx context.Context) {
-	r.wg.Add(1)
-	go func() {
-		defer r.wg.Done()
+	r.wg.Go(func() {
 		ticker := time.NewTicker(r.probeInterval())
 		defer ticker.Stop()
 		for {
@@ -454,7 +451,7 @@ func (r *directionRunner) startProber(ctx context.Context) {
 			r.runProbeRound(ctx, conn.client)
 			ticker.Reset(r.probeInterval())
 		}
-	}()
+	})
 }
 
 func (r *directionRunner) runProbeRound(ctx context.Context, selfClient *http.Client) {
@@ -513,10 +510,7 @@ func (r *directionRunner) swapIntervalProbeValues() []float64 {
 }
 
 func (r *directionRunner) setResponsivenessWindow(currentInterval int) {
-	lower := currentInterval - settings.movingAvgDistance + 1
-	if lower < 0 {
-		lower = 0
-	}
+	lower := max(currentInterval-settings.movingAvgDistance+1, 0)
 	r.probeMu.Lock()
 	r.responsivenessWindow = &intervalWindow{lower: lower, upper: currentInterval}
 	r.probeMu.Unlock()
@@ -529,10 +523,7 @@ func (r *directionRunner) recordThroughput(interval int, bps float64) {
 }
 
 func (r *directionRunner) setThroughputWindow(currentInterval int) {
-	lower := currentInterval - settings.movingAvgDistance + 1
-	if lower < 0 {
-		lower = 0
-	}
+	lower := max(currentInterval-settings.movingAvgDistance+1, 0)
 	r.probeMu.Lock()
 	r.throughputWindow = &intervalWindow{lower: lower, upper: currentInterval}
 	r.probeMu.Unlock()
@@ -956,7 +947,7 @@ func measureIdleLatency(ctx context.Context, factory MeasurementClientFactory, c
 			maxProbeBytes = measurement.bytes
 		}
 	}
-	sort.Slice(latencies, func(i, j int) bool { return latencies[i] < latencies[j] })
+	slices.Sort(latencies)
 	return int32(latencies[len(latencies)/2]), maxProbeBytes, nil
 }
 

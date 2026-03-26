@@ -224,7 +224,7 @@ func TestGeositeWriteReadCompat(t *testing.T) {
 
 func generateLargeItems(count int) map[string][]Item {
 	items := make([]Item, count)
-	for i := 0; i < count; i++ {
+	for i := range count {
 		items[i] = Item{
 			Type:  ItemType(i % 4),
 			Value: strings.Repeat("x", i%200) + ".com",
