@@ -84,7 +84,7 @@ func RegisterGunServiceServer(s grpc.ServiceRegistrar, srv GunServiceServer) {
 	s.RegisterService(&GunService_ServiceDesc, srv)
 }
 
-func _GunService_Tun_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _GunService_Tun_Handler(srv any, stream grpc.ServerStream) error {
 	return srv.(GunServiceServer).Tun(&grpc.GenericServerStream[Hunk, Hunk]{ServerStream: stream})
 }
 
