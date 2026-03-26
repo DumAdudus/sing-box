@@ -39,9 +39,7 @@ func newSystemDevice(options Options) (*systemDevice, error) {
 		options.Name = tun.CalculateInterfaceName(options.NamePrefix)
 	}
 	interfaceDialer, err := dialer.NewDefault(options.Context, option.DialerOptions{
-		AbstractDialerOptions: option.AbstractDialerOptions{
-			BindInterface: options.Name,
-		},
+		BindInterface: options.Name,
 	})
 	if err != nil {
 		return nil, err
