@@ -941,7 +941,7 @@ func RegisterStartedServiceServer(s grpc.ServiceRegistrar, srv StartedServiceSer
 	s.RegisterService(&StartedService_ServiceDesc, srv)
 }
 
-func _StartedService_GetVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_GetVersion_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -953,13 +953,13 @@ func _StartedService_GetVersion_Handler(srv interface{}, ctx context.Context, de
 		Server:     srv,
 		FullMethod: StartedService_GetVersion_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).GetVersion(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_SubscribeServiceStatus_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SubscribeServiceStatus_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(emptypb.Empty)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -970,7 +970,7 @@ func _StartedService_SubscribeServiceStatus_Handler(srv interface{}, stream grpc
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_SubscribeServiceStatusServer = grpc.ServerStreamingServer[ServiceStatus]
 
-func _StartedService_SubscribeLog_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SubscribeLog_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(emptypb.Empty)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -981,7 +981,7 @@ func _StartedService_SubscribeLog_Handler(srv interface{}, stream grpc.ServerStr
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_SubscribeLogServer = grpc.ServerStreamingServer[Log]
 
-func _StartedService_GetDefaultLogLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_GetDefaultLogLevel_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -993,13 +993,13 @@ func _StartedService_GetDefaultLogLevel_Handler(srv interface{}, ctx context.Con
 		Server:     srv,
 		FullMethod: StartedService_GetDefaultLogLevel_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).GetDefaultLogLevel(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_ClearLogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_ClearLogs_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1011,13 +1011,13 @@ func _StartedService_ClearLogs_Handler(srv interface{}, ctx context.Context, dec
 		Server:     srv,
 		FullMethod: StartedService_ClearLogs_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).ClearLogs(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_SubscribeStatus_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SubscribeStatus_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(SubscribeStatusRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1028,7 +1028,7 @@ func _StartedService_SubscribeStatus_Handler(srv interface{}, stream grpc.Server
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_SubscribeStatusServer = grpc.ServerStreamingServer[Status]
 
-func _StartedService_SubscribeGroups_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SubscribeGroups_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(emptypb.Empty)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1039,7 +1039,7 @@ func _StartedService_SubscribeGroups_Handler(srv interface{}, stream grpc.Server
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_SubscribeGroupsServer = grpc.ServerStreamingServer[Groups]
 
-func _StartedService_GetClashModeStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_GetClashModeStatus_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1051,13 +1051,13 @@ func _StartedService_GetClashModeStatus_Handler(srv interface{}, ctx context.Con
 		Server:     srv,
 		FullMethod: StartedService_GetClashModeStatus_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).GetClashModeStatus(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_SubscribeClashMode_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SubscribeClashMode_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(emptypb.Empty)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1068,7 +1068,7 @@ func _StartedService_SubscribeClashMode_Handler(srv interface{}, stream grpc.Ser
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_SubscribeClashModeServer = grpc.ServerStreamingServer[ClashMode]
 
-func _StartedService_SetClashMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_SetClashMode_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(ClashMode)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1080,13 +1080,13 @@ func _StartedService_SetClashMode_Handler(srv interface{}, ctx context.Context, 
 		Server:     srv,
 		FullMethod: StartedService_SetClashMode_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).SetClashMode(ctx, req.(*ClashMode))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_URLTest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_URLTest_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(URLTestRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1098,13 +1098,13 @@ func _StartedService_URLTest_Handler(srv interface{}, ctx context.Context, dec f
 		Server:     srv,
 		FullMethod: StartedService_URLTest_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).URLTest(ctx, req.(*URLTestRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_SelectOutbound_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_SelectOutbound_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(SelectOutboundRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1116,13 +1116,13 @@ func _StartedService_SelectOutbound_Handler(srv interface{}, ctx context.Context
 		Server:     srv,
 		FullMethod: StartedService_SelectOutbound_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).SelectOutbound(ctx, req.(*SelectOutboundRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_SetGroupExpand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_SetGroupExpand_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(SetGroupExpandRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1134,13 +1134,13 @@ func _StartedService_SetGroupExpand_Handler(srv interface{}, ctx context.Context
 		Server:     srv,
 		FullMethod: StartedService_SetGroupExpand_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).SetGroupExpand(ctx, req.(*SetGroupExpandRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_SubscribeConnections_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SubscribeConnections_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(SubscribeConnectionsRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1151,7 +1151,7 @@ func _StartedService_SubscribeConnections_Handler(srv interface{}, stream grpc.S
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_SubscribeConnectionsServer = grpc.ServerStreamingServer[ConnectionEvents]
 
-func _StartedService_CloseConnection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_CloseConnection_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(CloseConnectionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1163,13 +1163,13 @@ func _StartedService_CloseConnection_Handler(srv interface{}, ctx context.Contex
 		Server:     srv,
 		FullMethod: StartedService_CloseConnection_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).CloseConnection(ctx, req.(*CloseConnectionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_CloseAllConnections_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_CloseAllConnections_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1181,13 +1181,13 @@ func _StartedService_CloseAllConnections_Handler(srv interface{}, ctx context.Co
 		Server:     srv,
 		FullMethod: StartedService_CloseAllConnections_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).CloseAllConnections(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_GetDeprecatedWarnings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_GetDeprecatedWarnings_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1199,13 +1199,13 @@ func _StartedService_GetDeprecatedWarnings_Handler(srv interface{}, ctx context.
 		Server:     srv,
 		FullMethod: StartedService_GetDeprecatedWarnings_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).GetDeprecatedWarnings(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_GetStartedAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_GetStartedAt_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1217,13 +1217,13 @@ func _StartedService_GetStartedAt_Handler(srv interface{}, ctx context.Context, 
 		Server:     srv,
 		FullMethod: StartedService_GetStartedAt_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).GetStartedAt(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_SubscribeOutbounds_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SubscribeOutbounds_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(emptypb.Empty)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1234,7 +1234,7 @@ func _StartedService_SubscribeOutbounds_Handler(srv interface{}, stream grpc.Ser
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_SubscribeOutboundsServer = grpc.ServerStreamingServer[OutboundList]
 
-func _StartedService_StartNetworkQualityTest_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_StartNetworkQualityTest_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(NetworkQualityTestRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1245,7 +1245,7 @@ func _StartedService_StartNetworkQualityTest_Handler(srv interface{}, stream grp
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_StartNetworkQualityTestServer = grpc.ServerStreamingServer[NetworkQualityTestProgress]
 
-func _StartedService_StartSTUNTest_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_StartSTUNTest_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(STUNTestRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1256,7 +1256,7 @@ func _StartedService_StartSTUNTest_Handler(srv interface{}, stream grpc.ServerSt
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_StartSTUNTestServer = grpc.ServerStreamingServer[STUNTestProgress]
 
-func _StartedService_SubscribeTailscaleStatus_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SubscribeTailscaleStatus_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(emptypb.Empty)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1267,7 +1267,7 @@ func _StartedService_SubscribeTailscaleStatus_Handler(srv interface{}, stream gr
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_SubscribeTailscaleStatusServer = grpc.ServerStreamingServer[TailscaleStatusUpdate]
 
-func _StartedService_StartTailscalePing_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_StartTailscalePing_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(TailscalePingRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1278,7 +1278,7 @@ func _StartedService_StartTailscalePing_Handler(srv interface{}, stream grpc.Ser
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_StartTailscalePingServer = grpc.ServerStreamingServer[TailscalePingResponse]
 
-func _StartedService_SetTailscaleExitNode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_SetTailscaleExitNode_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(SetTailscaleExitNodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1290,13 +1290,13 @@ func _StartedService_SetTailscaleExitNode_Handler(srv interface{}, ctx context.C
 		Server:     srv,
 		FullMethod: StartedService_SetTailscaleExitNode_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).SetTailscaleExitNode(ctx, req.(*SetTailscaleExitNodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_TailscaleLogout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_TailscaleLogout_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(TailscaleLogoutRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1308,13 +1308,13 @@ func _StartedService_TailscaleLogout_Handler(srv interface{}, ctx context.Contex
 		Server:     srv,
 		FullMethod: StartedService_TailscaleLogout_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).TailscaleLogout(ctx, req.(*TailscaleLogoutRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_GetTailscaleCertificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_GetTailscaleCertificate_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(TailscaleCertificateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1326,20 +1326,20 @@ func _StartedService_GetTailscaleCertificate_Handler(srv interface{}, ctx contex
 		Server:     srv,
 		FullMethod: StartedService_GetTailscaleCertificate_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).GetTailscaleCertificate(ctx, req.(*TailscaleCertificateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_StartTailscaleSSHSession_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_StartTailscaleSSHSession_Handler(srv any, stream grpc.ServerStream) error {
 	return srv.(StartedServiceServer).StartTailscaleSSHSession(&grpc.GenericServerStream[TailscaleSSHClientMessage, TailscaleSSHServerMessage]{ServerStream: stream})
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_StartTailscaleSSHSessionServer = grpc.BidiStreamingServer[TailscaleSSHClientMessage, TailscaleSSHServerMessage]
 
-func _StartedService_SubscribeTaildropInbox_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SubscribeTaildropInbox_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(SubscribeTaildropInboxRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1350,7 +1350,7 @@ func _StartedService_SubscribeTaildropInbox_Handler(srv interface{}, stream grpc
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_SubscribeTaildropInboxServer = grpc.ServerStreamingServer[TaildropInbox]
 
-func _StartedService_MarkTaildropInboxRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_MarkTaildropInboxRead_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(MarkTaildropInboxReadRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1362,20 +1362,20 @@ func _StartedService_MarkTaildropInboxRead_Handler(srv interface{}, ctx context.
 		Server:     srv,
 		FullMethod: StartedService_MarkTaildropInboxRead_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).MarkTaildropInboxRead(ctx, req.(*MarkTaildropInboxReadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_SendTaildropFiles_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SendTaildropFiles_Handler(srv any, stream grpc.ServerStream) error {
 	return srv.(StartedServiceServer).SendTaildropFiles(&grpc.GenericServerStream[TaildropSendClientMessage, TaildropSendServerMessage]{ServerStream: stream})
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_SendTaildropFilesServer = grpc.BidiStreamingServer[TaildropSendClientMessage, TaildropSendServerMessage]
 
-func _StartedService_DownloadTaildropFile_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_DownloadTaildropFile_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(DownloadTaildropFileRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1386,7 +1386,7 @@ func _StartedService_DownloadTaildropFile_Handler(srv interface{}, stream grpc.S
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_DownloadTaildropFileServer = grpc.ServerStreamingServer[DownloadTaildropFileChunk]
 
-func _StartedService_DeleteTaildropFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_DeleteTaildropFile_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(DeleteTaildropFileRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1398,13 +1398,13 @@ func _StartedService_DeleteTaildropFile_Handler(srv interface{}, ctx context.Con
 		Server:     srv,
 		FullMethod: StartedService_DeleteTaildropFile_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).DeleteTaildropFile(ctx, req.(*DeleteTaildropFileRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_CancelTaildropReceiving_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_CancelTaildropReceiving_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(CancelTaildropReceivingRequest)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1416,20 +1416,20 @@ func _StartedService_CancelTaildropReceiving_Handler(srv interface{}, ctx contex
 		Server:     srv,
 		FullMethod: StartedService_CancelTaildropReceiving_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).CancelTaildropReceiving(ctx, req.(*CancelTaildropReceivingRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_ProvideUSBDevices_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_ProvideUSBDevices_Handler(srv any, stream grpc.ServerStream) error {
 	return srv.(StartedServiceServer).ProvideUSBDevices(&grpc.GenericServerStream[USBProviderMessage, USBServerMessage]{ServerStream: stream})
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_ProvideUSBDevicesServer = grpc.BidiStreamingServer[USBProviderMessage, USBServerMessage]
 
-func _StartedService_SubscribeUSBIPServerStatus_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SubscribeUSBIPServerStatus_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(emptypb.Empty)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1440,7 +1440,7 @@ func _StartedService_SubscribeUSBIPServerStatus_Handler(srv interface{}, stream 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_SubscribeUSBIPServerStatusServer = grpc.ServerStreamingServer[USBIPServerStatusUpdate]
 
-func _StartedService_SubscribeOpenConnectStatus_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SubscribeOpenConnectStatus_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(emptypb.Empty)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1451,7 +1451,7 @@ func _StartedService_SubscribeOpenConnectStatus_Handler(srv interface{}, stream 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_SubscribeOpenConnectStatusServer = grpc.ServerStreamingServer[OpenConnectStatusUpdate]
 
-func _StartedService_SubmitOpenConnectAuthResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_SubmitOpenConnectAuthResponse_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(OpenConnectAuthResponseSubmission)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1463,13 +1463,13 @@ func _StartedService_SubmitOpenConnectAuthResponse_Handler(srv interface{}, ctx 
 		Server:     srv,
 		FullMethod: StartedService_SubmitOpenConnectAuthResponse_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).SubmitOpenConnectAuthResponse(ctx, req.(*OpenConnectAuthResponseSubmission))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_CancelOpenConnectAuthChallenge_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_CancelOpenConnectAuthChallenge_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(OpenConnectAuthChallengeCancel)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1481,13 +1481,13 @@ func _StartedService_CancelOpenConnectAuthChallenge_Handler(srv interface{}, ctx
 		Server:     srv,
 		FullMethod: StartedService_CancelOpenConnectAuthChallenge_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).CancelOpenConnectAuthChallenge(ctx, req.(*OpenConnectAuthChallengeCancel))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_SubscribeOpenVPNStatus_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SubscribeOpenVPNStatus_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(emptypb.Empty)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
@@ -1498,7 +1498,7 @@ func _StartedService_SubscribeOpenVPNStatus_Handler(srv interface{}, stream grpc
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
 type StartedService_SubscribeOpenVPNStatusServer = grpc.ServerStreamingServer[OpenVPNStatusUpdate]
 
-func _StartedService_SubmitOpenVPNChallengeResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_SubmitOpenVPNChallengeResponse_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(OpenVPNChallengeSubmission)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1510,13 +1510,13 @@ func _StartedService_SubmitOpenVPNChallengeResponse_Handler(srv interface{}, ctx
 		Server:     srv,
 		FullMethod: StartedService_SubmitOpenVPNChallengeResponse_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).SubmitOpenVPNChallengeResponse(ctx, req.(*OpenVPNChallengeSubmission))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_CancelOpenVPNChallenge_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _StartedService_CancelOpenVPNChallenge_Handler(srv any, ctx context.Context, dec func(any) error, interceptor grpc.UnaryServerInterceptor) (any, error) {
 	in := new(OpenVPNChallengeCancel)
 	if err := dec(in); err != nil {
 		return nil, err
@@ -1528,13 +1528,13 @@ func _StartedService_CancelOpenVPNChallenge_Handler(srv interface{}, ctx context
 		Server:     srv,
 		FullMethod: StartedService_CancelOpenVPNChallenge_FullMethodName,
 	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+	handler := func(ctx context.Context, req any) (any, error) {
 		return srv.(StartedServiceServer).CancelOpenVPNChallenge(ctx, req.(*OpenVPNChallengeCancel))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StartedService_SubscribeNotifications_Handler(srv interface{}, stream grpc.ServerStream) error {
+func _StartedService_SubscribeNotifications_Handler(srv any, stream grpc.ServerStream) error {
 	m := new(emptypb.Empty)
 	if err := stream.RecvMsg(m); err != nil {
 		return err

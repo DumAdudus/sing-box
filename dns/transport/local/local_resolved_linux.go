@@ -19,7 +19,7 @@ import (
 	"github.com/sagernet/sing-box/dns"
 	dnsTransport "github.com/sagernet/sing-box/dns/transport"
 	"github.com/sagernet/sing-box/option"
-	"github.com/sagernet/sing-tun"
+	tun "github.com/sagernet/sing-tun"
 	"github.com/sagernet/sing/common"
 	"github.com/sagernet/sing/common/control"
 	E "github.com/sagernet/sing/common/exceptions"
@@ -628,10 +628,8 @@ func (t *DBusResolvedResolver) createResolvedScope(serverScope *adapter.Scope, s
 		fallback:     scopeSpecification.fallback,
 	}
 	serverDialer, err := dialer.NewDefault(t.ctx, option.DialerOptions{
-		AbstractDialerOptions: option.AbstractDialerOptions{
-			BindInterface:      scopeSpecification.interfaceName,
-			UDPFragmentDefault: true,
-		},
+		BindInterface:      scopeSpecification.interfaceName,
+		UDPFragmentDefault: true,
 	})
 	if err != nil {
 		return nil, err
